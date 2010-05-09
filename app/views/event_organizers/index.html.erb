@@ -1,0 +1,18 @@
+<h1>Listing event_organizers</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @event_organizers.each do |event_organizer| %>
+  <tr>
+    <td><%= link_to 'Show', event_organizer %></td>
+    <td><%= link_to 'Edit', edit_event_organizer_path(event_organizer) %></td>
+    <td><%= link_to 'Destroy', event_organizer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New event_organizer', new_event_organizer_path %>

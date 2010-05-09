@@ -1,0 +1,19 @@
+<h1>Please design your card</h1>
+
+<% form_for(@attendee) do |f| %>
+  First name: <%= f.text_field :first_name, :size => "20", :class => "eventcard" %> <br/>
+  Last name: <%= f.text_field :last_name, :size => "20", :class => "eventcard" %> <br/>
+  Title: <%= f.text_field :title, :size => "20", :class => "eventcard" %> <br/>
+  Phone number:  <%= f.text_field :phone, :size => "20", :class => "eventcard" %> <br/>
+  Email: <%= f.text_field :email, :size => "20", :class => "eventcard" %> <br/>
+  Type: <%= f.text_field :attendee_type, :size => "20", :class => "eventcard" %> <br/>
+  <%#= f.text_field :logo, :size => "20", :class => "eventcard" %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', attendees_path %>
+<%# form_tag :action => 'pdf_card' do %>
+  <%#= submit_tag "generate cards" %>
+<%# end %>

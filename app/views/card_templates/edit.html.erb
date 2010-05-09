@@ -1,0 +1,12 @@
+<h1>Editing card_template</h1>
+
+<% form_for(@card_template) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @card_template %> |
+<%= link_to 'Back', card_templates_path %>

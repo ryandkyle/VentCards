@@ -1,0 +1,18 @@
+<h1>Listing card_templates</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @card_templates.each do |card_template| %>
+  <tr>
+    <td><%= link_to 'Show', card_template %></td>
+    <td><%= link_to 'Edit', edit_card_template_path(card_template) %></td>
+    <td><%= link_to 'Destroy', card_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New card_template', new_card_template_path %>

@@ -1,0 +1,112 @@
+#
+#   "$Id: Makedefs.in 1555 2008-03-01 18:18:52Z mike $"
+#
+#   Makefile definitions for HTMLDOC, an HTML document processing program.
+#
+#   Copyright 1997-2008 by Easy Software Products.
+#
+#   These coded instructions, statements, and computer programs are the
+#   property of Easy Software Products and are protected by Federal
+#   copyright law.  Distribution and use rights are outlined in the file
+#   "COPYING.txt" which should have been included with this file.  If this
+#   file is missing or damaged please contact Easy Software Products
+#   at:
+#
+#       Attn: HTMLDOC Licensing Information
+#       Easy Software Products
+#       516 Rio Grand Ct
+#       Morgan Hill, CA 95037 USA
+#
+#       http://www.htmldoc.org/
+#
+
+#
+# Programs...
+#
+
+AR		=	/usr/bin/ar
+AWK		=	awk
+CC		=	gcc
+CXX		=	g++
+CHMOD		=	/bin/chmod
+CP		=	/bin/cp
+LN		=	/bin/ln -sf
+MKDIR		=	/bin/mkdir -p
+MV		=	/bin/mv
+POST		=	@POST@
+RANLIB		=	ranlib
+RM		=	/bin/rm -f
+SHELL		=	/bin/sh
+
+# The extension to use for executables...
+EXEEXT		=	
+
+
+#
+# Directories...
+#
+
+bindir		=	/usr/local/bin
+datadir		=	/usr/local/share
+datarootdir	=	/usr/local/share
+docdir		=	/usr/local/share/doc/htmldoc
+exec_prefix	=	/usr/local
+includedir	=	${prefix}/include
+infodir		=	${datarootdir}/info
+libdir		=	${exec_prefix}/lib
+localstatedir	=	${prefix}/var
+mandir		=	${datarootdir}/man
+prefix		=	/usr/local
+sbindir		=	${exec_prefix}/sbin
+srcdir		=	.
+sysconfdir	=	/usr/local/etc
+top_srcdir	=	.
+
+
+#
+# Image libraries...
+#
+
+JPEGDEP		=	../jpeg/libjpeg.a
+JPEGDIR		=	jpeg
+JPEGINC		=	-I../jpeg
+
+PNGDEP		=	../png/libpng.a
+PNGDIR		=	png
+PNGINC		=	-I../png
+
+ZLIBDEP		=	
+ZLIBDIR		=	
+ZLIBINC		=	
+
+
+#
+# Program options...
+#
+# OPTIM   defines the common compiler optimization/debugging options.
+#
+
+ARFLAGS		=	cr
+CFLAGS		=	-I..  $(OPTIM) $(PNGINC) $(JPEGINC) $(ZLIBINC)
+CXXFLAGS	=	-I..  -fno-rtti -fno-exceptions $(OPTIM) $(PNGINC) $(JPEGINC) $(ZLIBINC)
+LDFLAGS		=	 $(OPTIM)
+LIBS		=	-lssl -lcrypto $(PNGDEP) $(JPEGDEP) $(ZLIBDEP) -lz -lm 
+OPTIM		=	-Wall -Wunused -Wno-char-subscripts -Os -g -DOPENSSL_DISABLE_OLD_DES_SUPPORT -DOPENSSL_NO_KRB5
+
+
+#
+# Rules...
+#
+
+.SILENT:
+.SUFFIXES:	.a .c .cxx .h .o
+.c.o:
+	echo Compiling $<...
+	$(CC) $(CFLAGS) -c $<
+.cxx.o:
+	echo Compiling $<...
+	$(CXX) $(CXXFLAGS) -c $<
+
+#
+# End of "$Id: Makedefs.in 1555 2008-03-01 18:18:52Z mike $".
+#

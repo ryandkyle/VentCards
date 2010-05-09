@@ -1,0 +1,22 @@
+ development:
+   adapter: mysql
+   database: eventcard
+   username: eventcard
+   password: eventcard
+   host: localhost
+ test:
+   adapter: mysql
+   database: library_test
+   username: root
+   password: [password]
+   host: localhost
+ production:
+   adapter: mysql
+   database: library_production
+   username: root
+   password: [password]
+   host: localhost
+
+
+
+
